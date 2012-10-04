@@ -1,0 +1,52 @@
+<link rel="stylesheet" type="text/css" href="ResponsiveImageGallery/css/style.css" />
+<link rel="stylesheet" type="text/css" href="ResponsiveImageGallery/css/elastislide.css" />
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&v1' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css' />
+<script id="img-wrapper-tmpl" type="text/x-jquery-tmpl">	
+	<div class="rg-image-wrapper">
+		{{if itemsCount > 1}}
+			<div class="rg-image-nav">
+				<a href="#" class="rg-image-nav-prev">Previous Image</a>
+				<a href="#" class="rg-image-nav-next">Next Image</a>
+			</div>
+		{{/if}}
+		<div class="rg-image"></div>
+		<div class="rg-loading"></div>
+		<div class="rg-caption-wrapper">
+			<div class="rg-caption" style="display:none;">
+				<p></p>
+			</div>
+		</div>
+	</div>
+</script>
+<div id="rg-gallery" class="rg-gallery">
+	<div class="rg-thumbs">
+		<!-- Elastislide Carousel Thumbnail Viewer -->
+		<div class="es-carousel-wrapper">
+			<div class="es-nav">
+				<span class="es-nav-prev">Previous</span>
+				<span class="es-nav-next">Next</span>
+			</div>
+			<div class="es-carousel">
+				<ul>
+					<li><a href="#"><img src="ResponsiveImageGallery/images/thumbs/1.jpg" data-large="https://lh4.googleusercontent.com/-aMQVMOpmZCM/SjWyW6Bk7QI/AAAAAAAABmM/UGuEksjOzH4/s908/IMG_0236.JPG" alt="image01" data-description="Remley Manor, site of the 2009 Invitational" /></a></li>
+					<li><a href="#"><img src="ResponsiveImageGallery/images/thumbs/2.jpg" data-large="https://lh5.googleusercontent.com/-KFHDG0iL4A8/SjWyaYc7_FI/AAAAAAAABmM/YwM_o8oNyW0/s908/IMG_0238.JPG" alt="image02" data-description="The torch is ignited!" /></a></li>
+					<li><a href="#"><img src="ResponsiveImageGallery/images/thumbs/3.jpg" data-large="https://lh4.googleusercontent.com/-xZls8rwkPCQ/SjWykRpYapI/AAAAAAAABmM/bdXFWYPh9_Q/s681/IMG_0243.JPG" alt="image03" data-description="The lighting of the Donald S. Epling Memorial Broom" /></a></li>
+					<li><a href="#"><img src="ResponsiveImageGallery/images/thumbs/4.jpg" data-large="https://lh5.googleusercontent.com/-sF6tgcYzScQ/SjWysk1CZUI/AAAAAAAABmM/0bybHzkRktc/s908/IMG_0247.JPG" alt="image04" data-description="Aaron Remely prepares to serve" /></a></li>
+					<li><a href="#"><img src="ResponsiveImageGallery/images/thumbs/5.jpg" data-large="https://lh4.googleusercontent.com/-04ZvHViEre4/SjWyvWtehHI/AAAAAAAABmQ/LoUicvjf_Pw/s908/IMG_0248.JPG" alt="image05" data-description="Miss Growdon serves as her partner and the linesman look on." /></a></li>
+					<li><a href="#"><img src="ResponsiveImageGallery/images/thumbs/6.jpg" data-large="https://lh6.googleusercontent.com/-roY1bqVJAnI/SjWywykS8gI/AAAAAAAABmM/-H3nVXysSGY/s908/IMG_0249.JPG" alt="image06" data-description="ACTION SHOT!!!" /></a></li>
+					<li><a href="#"><img src="ResponsiveImageGallery/images/thumbs/7.jpg" data-large="https://lh3.googleusercontent.com/-1F-9agUtueM/SjWyzAkeKWI/AAAAAAAABmM/STYvMaqfSgY/s908/IMG_0250.JPG" alt="image07" data-description="Champions Again!" /></a></li>
+					<li><a href="#"><img src="ResponsiveImageGallery/images/thumbs/8.jpg" data-large="https://lh4.googleusercontent.com/-DGGd1A5FN1I/SjWy5h3lyXI/AAAAAAAACBE/oRwMCNCKhq8/s908/IMG_0252.JPG" alt="image08" data-description="The Competitors" /></a></li>
+					<li><a href="#"><img src="ResponsiveImageGallery/images/thumbs/9.jpg" data-large="https://lh5.googleusercontent.com/-d6Q2bL3oP_U/SjWy8ZL5gUI/AAAAAAAABmM/i2dyG_zvDHs/s681/IMG_0254.JPG" alt="image09" data-description="The victorious duo poses for a photo-op before the evening gala." /></a></li>
+					<li><a href="#"><img src="ResponsiveImageGallery/images/thumbs/10.jpg" data-large="https://lh3.googleusercontent.com/-tZ4EKkRsgZg/SjWzCN-aPAI/AAAAAAAABmM/RfTb938Rkcg/s908/IMG_0257.JPG" alt="image10" data-description="The Champ and his grandmother cut his birthday cake." /></a></li>
+					<li><a href="#"><img src="ResponsiveImageGallery/images/thumbs/11.jpg" data-large="https://lh6.googleusercontent.com/-3DO5Y_Uip0Y/SjWzMiO5HVI/AAAAAAAABug/YyJEvgE3XVk/s681/IMG_0261.JPG" alt="image11" data-description="Good times were had by all." /></a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- End Elastislide Carousel Thumbnail Viewer -->
+	</div><!-- rg-thumbs -->
+</div><!-- rg-gallery -->
+<script type="text/javascript" src="ResponsiveImageGallery/js/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="ResponsiveImageGallery/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="ResponsiveImageGallery/js/jquery.elastislide.js"></script>
+<script type="text/javascript" src="ResponsiveImageGallery/js/gallery.js"></script>

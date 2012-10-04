@@ -1,0 +1,96 @@
+<h2>Click on a year to view a summary</h2>
+<div id="yearlycontainer">
+	<table class="table table-bordered table-striped">
+		<thead id="yearlyresults">
+			<tr>
+				<td id="yearheader">Year</td>
+				<td id="champsheader">Champions</td>
+				<td id="runnerupheader">Runners-up</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="resultset">
+				<td class="yearnum">2009</td>
+				<td class="champname">Remley/Epling</td>
+				<td class="runnerupname">Remely/Ghinga</td>
+			</tr>
+			<tr class="resultset">
+				<td class="yearnum">2004</td>
+				<td class="champname">Remley/Epling</td>
+				<td class="runnerupname">Triplett/Mozik</td>
+			</tr>
+			<tr class="resultset">
+				<td class="yearnum">2003</td>
+				<td class="champname">Remley/Epling</td>
+				<td class="runnerupname">Cole/Cole</td>
+			</tr>
+			<tr class="resultset">
+				<td class="yearnum">2002</td>
+				<td class="champname">Remley/Epling</td>
+				<td class="runnerupname">Lewis/Cole</td>
+			</tr>
+			<tr class="resultset">
+				<td class="yearnum">2001</td>
+				<td class="champname">Remley/Epling</td>
+				<td class="runnerupname">Cole/Cole</td>
+			</tr>
+			<tr class="resultset">
+				<td class="yearnum">2000</td>
+				<td class="champname">Remley/Epling</td>
+				<td class="runnerupname">Lewis/?</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div id="result-container"></div>
+
+<script>
+	$('#result-container').hide();
+	$('#yearModal').modal({
+	  keyboard: false,
+	  show: false
+	});
+	if ($(window).width() > 940) {
+		$('.resultset').off();
+		$('.resultset').on('click', function() {
+			var year = $(this).find('.yearnum').html();
+			$.get(year+'.html', function(data) {
+					$('#yearModal').html(data).modal('toggle');
+			});
+		});
+	}
+	else {
+		$('.resultset').off();
+		$('.resultset').click(function() {
+			var year = $(this).find('.yearnum').html();
+			$.get(year+'-b.html', function(data) {
+					$('#result-container').html(data);
+					$('#result-container').html(data).fadeIn(250);
+					window.scrollTo(0,0);
+			});
+		});
+	}
+	$(window).resize(function() {
+		if ($(window).width() > 940) {
+			$('.resultset').off();
+			$('.resultset').on('click', function() {
+				var year = $(this).find('.yearnum').html();
+				$.get(year+'.html', function(data) {
+						$('#yearModal').html(data).modal('toggle');
+				});
+			});
+		}
+		else {
+			$('.resultset').off();
+			$('.resultset').click(function() {
+				var year = $(this).find('.yearnum').html();
+				$.get(year+'-b.html', function(data) {
+						$('#result-container').html(data);
+						$('#result-container').fadeIn(250);
+						window.scrollTo(0,0);
+				});
+			});
+		}
+	});
+</script>
