@@ -3,13 +3,10 @@ $(function(){
 
 		var fileToLoadName = fileToLoad + '.html';
 
-		if ((fileToLoad == "") || (fileToLoad == null)) {
+		if ((fileToLoad == "") || (fileToLoad == null) || (fileToLoad == "index")) {
 			fileToLoad = "index";
 			fileToLoadName = "info.html";
 		}
-		
-		console.log(fileToLoad);
-		console.log(fileToLoadName);
 
 	    $('#guts').fadeOut(250, function() {
 			if (fileToLoad === "traditions"){
