@@ -1,36 +1,53 @@
 $(function(){
-      
-  // Bind an event to window.onhashchange that, when the hash changes, gets the
-  // hash and adds the class "selected" to any matching nav link.
-  $(window).hashchange( function(){
-    var hash = location.hash;
-    
-    if (hash === "") { hash = "#info";}
-    
-    var fileToLoad = hash.substr(1) + '.html';
-    $('#guts').fadeOut(250, function() {
-		if (hash === "#traditions"){
-			$('#guts').addClass("trad");
+	function updateState(fileToLoad) {
+
+		var fileToLoadName = fileToLoad + '.html';
+
+		if ((fileToLoad == "") || (fileToLoad == null)) {
+			fileToLoad = "index";
+			fileToLoadName = "info.html";
 		}
-		else {
-			$('#guts').removeClass("trad");
-		}
-		$.get(fileToLoad, function(data) {
-			$('#guts').html(data).fadeIn(250);
-		});
-    });
-    // Iterate over all nav links, setting the "selected" class as-appropriate.
-    $('.remnav').each(function(){
-      var that = $(this);
-      that[ that.find('a').attr( 'href' ) === hash ? 'addClass' : 'removeClass' ]( 'active' );
-    });
-    
-    $('.collapse').collapse('hide');
-  });
-  
-  // Since the event is only triggered when the hash changes, we need to trigger
-  // the event now, to handle the hash the page may have loaded with.
-  $(window).hashchange();
+		
+		console.log(fileToLoad);
+		console.log(fileToLoadName);
+
+	    $('#guts').fadeOut(250, function() {
+			if (fileToLoad === "traditions"){
+				$('#guts').addClass("trad");
+			}
+			else {
+				$('#guts').removeClass("trad");
+			}
+			$.get(fileToLoadName, function(data) {
+				$('#guts').html(data).fadeIn(250);
+			});
+	    });
+	    // Iterate over all nav links, setting the "selected" class as-appropriate.
+	    $('.remnav').each(function(){
+	      var that = $(this);
+	      that[ that.find('a').attr( 'href' ) === fileToLoadName ? 'addClass' : 'removeClass' ]( 'active' );
+	    });
+	    
+	    $('.collapse').collapse('hide');
+
+	}
+
+	window.addEventListener("popstate", function(e) {
+		var theState = location.pathname.split('/').pop();
+		updateState(theState);
+		//window.history.pushState(null,null,theState);
+	});
+
+	$('.remnav').delegate("a", "click", function() {
+		var theState = $(this).attr("href");
+		var rex = /\.html/;
+		var newState = theState.replace(rex, "");
+		updateState(newState);
+		window.history.pushState(null,null,newState);
+		// window.location.hash = newHash;
+		return false;
+	});
+
   $("#socialbuttons a[href^='http://']").attr("target","_blank");
 });
 
