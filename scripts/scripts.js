@@ -1,9 +1,15 @@
 $(function(){
+	var History = window.History;
+	History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
+        var State = History.getState(); // Note: We are using History.getState() instead of event.state
+        var theState = location.pathname.split('/').pop();
+		updateState(theState);
+    });
 	function updateState(fileToLoad) {
 
 		var fileToLoadName = fileToLoad + '.html';
 
-		if ((fileToLoad == "") || (fileToLoad == null) || (fileToLoad == "index")) {
+		if (fileToLoad == "index") {
 			fileToLoad = "index";
 			fileToLoadName = "info.html";
 		}
@@ -29,23 +35,18 @@ $(function(){
 
 	}
 
-	window.addEventListener("popstate", function(e) {
-		var theState = location.pathname.split('/').pop();
-		updateState(theState);
-		//window.history.pushState(null,null,theState);
-	});
-
 	$('.remnav').delegate("a", "click", function() {
 		var theState = $(this).attr("href");
 		var rex = /\.html/;
 		var newState = theState.replace(rex, "");
 		updateState(newState);
-		window.history.pushState(null,null,newState);
+		History.pushState(null,null,newState);
 		// window.location.hash = newHash;
 		return false;
 	});
 
   $("#socialbuttons a[href^='http://']").attr("target","_blank");
+  //History.pushState(null,null,"index");
 });
 
 $(document).keydown(function(event) {
@@ -68,22 +69,3 @@ $(document).keydown(function(event) {
 			break;
 	}
 });
-
-function sniffIE() {
-	if ($.browser.msie){
-		if ($.browser.version == 9.0) {
-			alert('Looks like you\'re using IE 9. That\s cool I guess, but I can\'t guarantee this site will look awesome in your browser. Just FYI.');
-		}
-		else if ($.browser.version == 8.0) {
-			alert('Looks like you\'re using IE 8. That\s cool I guess, but I can\'t guarantee this site will look awesome in your browser. Just FYI.');
-		}
-		else if ($.browser.version == 7.0) {
-			alert('Looks like you\'re using IE 7. You should rrrreeeally think about upgrading your browser.');
-		}
-		else if ($.browser.version == 6.0) {
-			alert('Could it be?... I had heard legends and myths, but I never thought they could be true. IE 6... it lives!<br>Seriously though, you should really think about upgrading your browser.');
-		}
-	}
-}
-
-window.onload = sniffIE;
