@@ -39,9 +39,7 @@ $(function(){
 		var theState = $(this).attr("href");
 		var rex = /\.html/;
 		var newState = theState.replace(rex, "");
-		updateState(newState);
 		History.pushState(null,null,newState);
-		// window.location.hash = newHash;
 		return false;
 	});
 
