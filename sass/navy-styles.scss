@@ -153,6 +153,7 @@ header {
 #navbutton {
 	&:active, .active, &:hover {
 		background-color: $gold;
+		background-image: -webkit-linear-gradient(top,$navGradLight,$gold);
 		background-image: linear-gradient(to bottom,$navGradLight,$gold);
 	}
 }
@@ -160,11 +161,13 @@ header {
 .navbar-inner {
 	padding-left: 0px;
 	padding-right: 0;
+	background-image: -webkit-linear-gradient(top,$navGradLighter,$navGradLight);
 	background-image: linear-gradient(to bottom,$navGradLighter,$navGradLight);
 }
 
 .in li {
 	&:active, &:hover, .active {
+		background-image: -webkit-linear-gradient(top,$navGradLight,$gold);
 		background-image: linear-gradient(to bottom,$navGradLight,$gold);
 	}
 }
@@ -217,6 +220,7 @@ footer {
 			background-color: transparent;
 			width:32px;
 			background-color: #3B5998;
+			background-image: -webkit-linear-gradient(top, #2E67E2, #3B5998);
 			background-image: linear-gradient(to bottom, #2E67E2, #3B5998);
 			border-radius: 3px;
 			max-height: 30px;
@@ -224,15 +228,18 @@ footer {
 			display: inline-block;
 			@media (min-width: 1200px) {
 				&:hover {
+					background-image: -webkit-linear-gradient(top, #3B5998, #2E67E2);
 					background-image: linear-gradient(to bottom, #3B5998, #2E67E2);
 				}
 			}
 			&:active {
+				background-image: -webkit-linear-gradient(top, #19387B, #2654B8);
 				background-image: linear-gradient(to bottom, #19387B, #2654B8);
 			}
 		}
 		#twitterlogo {
 			background-color: #4099FF;
+			background-image: -webkit-linear-gradient(top, #52CBFF,#4099FF);
 			background-image: linear-gradient(to bottom, #52CBFF,#4099FF);
 			width:32px;
 			border-radius: 3px;
@@ -240,10 +247,12 @@ footer {
 			vertical-align: top;
 			@media (min-width: 1200px) {
 				&:hover {
+					background-image: -webkit-linear-gradient(top,#4099FF,#52CBFF);
 					background-image: linear-gradient(to bottom,#4099FF,#52CBFF);
 				}
 			}
 			&:active {
+				background-image: -webkit-linear-gradient(top,#08668E,#4099FF);
 				background-image: linear-gradient(to bottom,#08668E,#4099FF);
 			}
 		}
@@ -495,8 +504,9 @@ footer {
 
 .divider_line { 
     height: 1px;
-    background: $navy;
-	background: linear-gradient(left,#fff,$navy 50%, #fff);
+    background-color: $navy;
+	background-image: -webkit-linear-gradient(left,#fff,$navy 50%, #fff);
+	background-image: linear-gradient(left,#fff,$navy 50%, #fff);
 	width: 50%;
 	margin: 10px auto 10px auto;
 }
@@ -552,6 +562,7 @@ padding: 0;
 		#yearlyresults {
 			color: #fff;
 			background-color: $navy;
+			background-image: -webkit-linear-gradient(top, #002277, $navy);
 			background-image: linear-gradient(to bottom, #002277, $navy);
 			font-size: 14px;
 		}
@@ -566,6 +577,7 @@ padding: 0;
 		#yearlyresults {
 			color: #fff;
 			background-color: $navy;
+			background-image: -webkit-linear-gradient(top, #002277, $navy);
 			background-image: linear-gradient(to bottom, #002277, $navy);
 			font-size: 18px;
 		}
@@ -601,6 +613,7 @@ padding: 0;
 			line-height: 33px;
 			font-size: 19px;
 			background: #ffffff;
+			background: -webkit-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
 			background: linear-gradient(to bottom, #ffffff 1%,#eaeaea 100%);
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
 			box-shadow: 
@@ -694,9 +707,9 @@ padding: 0;
 			cursor: pointer;
 			color: #777;
 			text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-			//line-height: 14px;
 			font-size: 14px;
 			background: #ffffff;
+			background: -webkit-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
 			background: linear-gradient(to bottom, #ffffff 1%,#eaeaea 100%);
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
 			box-shadow: 
