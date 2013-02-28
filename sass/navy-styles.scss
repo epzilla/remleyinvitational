@@ -83,16 +83,19 @@ header {
 		border-radius: 5px;
 		width: 100%;
 		background-color: $navGradLighter;
-		background-image: linear-gradient(top,$navGradLighter,$navGradLight);
+		background-image: -webkit-linear-gradient(top,$navGradLighter,$navGradLight);
+		background-image: linear-gradient(to bottom,$navGradLighter,$navGradLight);
 		.divider-vertical {
 			background-image: none;
 		}
 		.remnav {
-			background-image: linear-gradient(top,$navGradLighter,$navGradLight);
+			background-image: -webkit-linear-gradient(top,$navGradLighter,$navGradLight);
+			background-image: linear-gradient(to bottom,$navGradLighter,$navGradLight);
 			color: $navy;
 			min-width: 24.9%;
 			&:hover {
-				background-image: linear-gradient(top,$navGradLightest,$navGradLight);
+				background-image: -webkit-linear-gradient(top,$navGradLightest,$navGradLight);
+				background-image: linear-gradient(to bottom,$navGradLightest,$navGradLight);
 				transition: all 0.4s ease;
 			}
 			a {
@@ -100,12 +103,14 @@ header {
 				color: $navy;
 				&:active {
 					background-color: $navGradLight;
-					background-image: linear-gradient(top,$navGradLight,$gold);
+					background-image: -webkit-linear-gradient(top,$navGradLight,$gold);
+					background-image: linear-gradient(to bottom,$navGradLight,$gold);
 					transition: all 0.4s ease;
 				}
 				&:hover {
 					background-color: $navGradLightest;
-					background-image: linear-gradient(top,$navGradLightest,$navGradLight);
+					background-image: -webkit-linear-gradient(top,$navGradLightest,$navGradLight);
+					background-image: linear-gradient(to bottom,$navGradLightest,$navGradLight);
 					text-shadow: rgba(0,35,77, 0.7) 0px -2px 0px;
 					transition: all 0.4s ease;
 				}
@@ -116,7 +121,8 @@ header {
 		}
 		.active a, .active a:hover{
 			background-color: $navGradLight;
-			background-image: linear-gradient(top,$navGradLight,$gold);
+			background-image: -webkit-linear-gradient(top,$navGradLight,$gold);
+			background-image: linear-gradient(to bottom,$navGradLight,$gold);
 			color: $navy;
 			text-shadow: rgba(200,200,200, 0.5) 0px -2px 0px;
 			transition: all 0.4s ease;
@@ -126,10 +132,12 @@ header {
 	.btn-navbar {
 		background-color: $gold;
 		color: #bada55;
-		background-image: linear-gradient(top,$gold,$navGradLight);
+		background-image: -webkit-linear-gradient(top,$gold,$navGradLight);
+		background-image: linear-gradient(to bottom,$gold,$navGradLight);
 		&:active, &:hover, .active {
 			background-color: $gold;
-			background-image: linear-gradient(top,$navGradLight,$gold);
+			background-image: -webkit-linear-gradient(top,$navGradLight,$gold);
+			background-image: linear-gradient(to bottom,$navGradLight,$gold);
 		}
 	}
 }
@@ -145,19 +153,19 @@ header {
 #navbutton {
 	&:active, .active, &:hover {
 		background-color: $gold;
-		background-image: linear-gradient(top,$navGradLight,$gold);
+		background-image: linear-gradient(to bottom,$navGradLight,$gold);
 	}
 }
 
 .navbar-inner {
 	padding-left: 0px;
 	padding-right: 0;
-	background-image: linear-gradient(top,$navGradLighter,$navGradLight);
+	background-image: linear-gradient(to bottom,$navGradLighter,$navGradLight);
 }
 
 .in li {
 	&:active, &:hover, .active {
-		background-image: linear-gradient(top,$navGradLight,$gold);
+		background-image: linear-gradient(to bottom,$navGradLight,$gold);
 	}
 }
 
@@ -209,34 +217,34 @@ footer {
 			background-color: transparent;
 			width:32px;
 			background-color: #3B5998;
-			background-image: linear-gradient(top, #2E67E2, #3B5998);
+			background-image: linear-gradient(to bottom, #2E67E2, #3B5998);
 			border-radius: 3px;
 			max-height: 30px;
 			padding: 5px 0 6px 0;
 			display: inline-block;
 			@media (min-width: 1200px) {
 				&:hover {
-					background-image: linear-gradient(top, #3B5998, #2E67E2);
+					background-image: linear-gradient(to bottom, #3B5998, #2E67E2);
 				}
 			}
 			&:active {
-				background-image: linear-gradient(top, #19387B, #2654B8);
+				background-image: linear-gradient(to bottom, #19387B, #2654B8);
 			}
 		}
 		#twitterlogo {
 			background-color: #4099FF;
-			background-image: linear-gradient(top, #52CBFF,#4099FF);
+			background-image: linear-gradient(to bottom, #52CBFF,#4099FF);
 			width:32px;
 			border-radius: 3px;
 			display: inline-block;
 			vertical-align: top;
 			@media (min-width: 1200px) {
 				&:hover {
-					background-image: linear-gradient(top,#4099FF,#52CBFF);
+					background-image: linear-gradient(to bottom,#4099FF,#52CBFF);
 				}
 			}
 			&:active {
-				background-image: linear-gradient(top,#08668E,#4099FF);
+				background-image: linear-gradient(to bottom,#08668E,#4099FF);
 			}
 		}
 	}
@@ -544,7 +552,7 @@ padding: 0;
 		#yearlyresults {
 			color: #fff;
 			background-color: $navy;
-			background-image: linear-gradient(top, #002277, $navy);
+			background-image: linear-gradient(to bottom, #002277, $navy);
 			font-size: 14px;
 		}
 		tbody > tr {
@@ -558,7 +566,7 @@ padding: 0;
 		#yearlyresults {
 			color: #fff;
 			background-color: $navy;
-			background-image: linear-gradient(top, #002277, $navy);
+			background-image: linear-gradient(to bottom, #002277, $navy);
 			font-size: 18px;
 		}
 		tbody > tr {
@@ -593,7 +601,7 @@ padding: 0;
 			line-height: 33px;
 			font-size: 19px;
 			background: #ffffff;
-			background: linear-gradient(top, #ffffff 1%,#eaeaea 100%);
+			background: linear-gradient(to bottom, #ffffff 1%,#eaeaea 100%);
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
 			box-shadow: 
 				0px 0px 0px 1px rgba(155,155,155,0.3), 
@@ -689,7 +697,7 @@ padding: 0;
 			//line-height: 14px;
 			font-size: 14px;
 			background: #ffffff;
-			background: linear-gradient(top, #ffffff 1%,#eaeaea 100%);
+			background: linear-gradient(to bottom, #ffffff 1%,#eaeaea 100%);
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
 			box-shadow: 
 				0px 0px 0px 1px rgba(155,155,155,0.3), 
