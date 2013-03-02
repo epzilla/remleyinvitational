@@ -1,4 +1,9 @@
 $(function(){
+	var currentState = location.pathname.split('/').pop();
+	if (currentState != "") {
+		//We're not at the home page
+		updateState(currentState);
+	}
 	var History = window.History;
 	History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
         var State = History.getState(); // Note: We are using History.getState() instead of event.state
@@ -9,7 +14,7 @@ $(function(){
 
 		var fileToLoadName = fileToLoad + '.html';
 
-		if (fileToLoad == "index") {
+		if ((fileToLoad == "index") || (fileToLoad == "")) {
 			fileToLoad = "index";
 			fileToLoadName = "info.html";
 		}
