@@ -8,6 +8,10 @@ $navGradLighter: #d1c51e;
 $navGradLightest: #e8d717;
 
 body {
+	@media (max-width: 767px) {
+		padding-left: 0;
+		padding-right: 0;
+	}
 	background: url('../images/blueleather.jpg');
 	color: $navy;
 	text-align: center;
