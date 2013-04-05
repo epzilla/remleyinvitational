@@ -1,4 +1,38 @@
+function updateState(fileToLoad) {
+
+	console.log('Shameless plug: Digium, you should totally hire me! -- Adam Epling');
+
+	var fileToLoadName = fileToLoad + '.html';
+
+	if ((fileToLoad == "index") || (fileToLoad == "")) {
+		fileToLoad = "index";
+		fileToLoadName = "info.html";
+	}
+
+    $('#guts').fadeOut(250, function() {
+		if (fileToLoad === "traditions"){
+			$('#guts').addClass("trad");
+		}
+		else {
+			$('#guts').removeClass("trad");
+		}
+		$.get(fileToLoadName, function(data) {
+			$('#guts').html(data).fadeIn(250);
+		});
+    });
+    // Iterate over all nav links, setting the "selected" class as-appropriate.
+    $('.remnav').each(function(){
+      var that = $(this);
+      that[ that.find('a').attr( 'href' ) === fileToLoadName ? 'addClass' : 'removeClass' ]( 'active' );
+    });
+    
+    $('.collapse').collapse('hide');
+
+}
+
 $(function(){
+	console.log('Shameless plug: Digium, you should totally hire me! -- Adam Epling');
+	console.log("Oh, and you can just ignore that error below. It's just Typekit and Prefixfree not getting along. :\\ ");
 	var currentState = location.pathname.split('/').pop();
 	if (currentState != "") {
 		//We're not at the home page
@@ -11,6 +45,8 @@ $(function(){
 		updateState(theState);
     });
 	function updateState(fileToLoad) {
+
+		console.log('Shameless plug: Digium, you should totally hire me! -- Adam Epling');
 
 		var fileToLoadName = fileToLoad + '.html';
 
@@ -56,19 +92,20 @@ $(document).keydown(function(event) {
 	var keypressed = event.which;
 	switch (keypressed) {
 		case 73:
-			location.hash = '#info';
+			updateState('info');
 			break;
 		case 82:
-			location.hash = '#results';
+			updateState('results');
 			break;
 		case 84:
-			location.hash = '#traditions';
+			updateState('traditions');;
 			break;
 		case 80:
-			location.hash = '#photos';
+			updateState('photos');;
 			break;
 		case 191:
-			alert('Shortcuts: blah');
+			alert('Ah, you\'ve found the key that reveals the keyboard shortcuts. Good job!\n\n' + 
+				'i: Info\nr : Past Results\nt : Traditions\np : Photos');
 			break;
 	}
 });
