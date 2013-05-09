@@ -9,6 +9,10 @@ function updateState(fileToLoad) {
 		fileToLoadName = "info.html";
 	}
 
+	if (typeof _gaq !== 'undefined') {
+		_gaq.push(['_trackPageview', '/'+fileToLoadName]);
+	}
+
     $('#guts').fadeOut(250, function() {
 		if (fileToLoad === "traditions"){
 			$('#guts').addClass("trad");
@@ -31,8 +35,6 @@ function updateState(fileToLoad) {
 }
 
 $(function(){
-	console.log('Shameless plug: Digium, you should totally hire me! -- Adam Epling');
-	console.log("Oh, and you can just ignore that error below. It's just Typekit and Prefixfree not getting along. :\\ ");
 	var currentState = location.pathname.split('/').pop();
 	if (currentState != "") {
 		//We're not at the home page
@@ -45,8 +47,6 @@ $(function(){
 		updateState(theState);
     });
 	function updateState(fileToLoad) {
-
-		console.log('Shameless plug: Digium, you should totally hire me! -- Adam Epling');
 
 		var fileToLoadName = fileToLoad + '.html';
 
