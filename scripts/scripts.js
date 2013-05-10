@@ -1,7 +1,5 @@
 function updateState(fileToLoad) {
 
-	console.log('Shameless plug: Digium, you should totally hire me! -- Adam Epling');
-
 	var fileToLoadName = fileToLoad + '.html';
 
 	if ((fileToLoad == "index") || (fileToLoad == "")) {
