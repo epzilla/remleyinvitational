@@ -1,3 +1,12 @@
+function setUpTraditionsTracking() {
+	$('.ac-container label').on('click', function() {
+		if (typeof _gaq !== 'undefined') {
+			var theText = $(this).text();
+			_gaq.push(['_trackEvent','Traditions', 'Viewed Tradition', theText]);
+		}
+	});
+}
+
 function setUpResultsPage() {
 	$('#result-container').hide();
 	$('#yearModal').modal({
@@ -85,6 +94,8 @@ function updateState(fileToLoad) {
 			$('#guts').html(data).fadeIn(250);
 			if (fileToLoad === "results") {
 				setUpResultsPage();
+			} else if (fileToLoad === "traditions") {
+				setUpTraditionsTracking();
 			}
 		});
     });
