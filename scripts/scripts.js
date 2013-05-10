@@ -8,6 +8,7 @@ function updateState(fileToLoad) {
 	}
 
 	if (typeof _gaq !== 'undefined') {
+		console.log('pushed '+fileToLoad);
 		_gaq.push(['_trackPageview', '/'+fileToLoadName]);
 	}
 
@@ -44,35 +45,6 @@ $(function(){
         var theState = location.pathname.split('/').pop();
 		updateState(theState);
     });
-	function updateState(fileToLoad) {
-
-		var fileToLoadName = fileToLoad + '.html';
-
-		if ((fileToLoad == "index") || (fileToLoad == "")) {
-			fileToLoad = "index";
-			fileToLoadName = "info.html";
-		}
-
-	    $('#guts').fadeOut(250, function() {
-			if (fileToLoad === "traditions"){
-				$('#guts').addClass("trad");
-			}
-			else {
-				$('#guts').removeClass("trad");
-			}
-			$.get(fileToLoadName, function(data) {
-				$('#guts').html(data).fadeIn(250);
-			});
-	    });
-	    // Iterate over all nav links, setting the "selected" class as-appropriate.
-	    $('.remnav').each(function(){
-	      var that = $(this);
-	      that[ that.find('a').attr( 'href' ) === fileToLoadName ? 'addClass' : 'removeClass' ]( 'active' );
-	    });
-	    
-	    $('.collapse').collapse('hide');
-
-	}
 
 	$('.remnav').delegate("a", "click", function() {
 		var theState = $(this).attr("href");
