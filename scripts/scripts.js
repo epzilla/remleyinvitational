@@ -54,8 +54,13 @@ $(function(){
 		return false;
 	});
 
-  $("#socialbuttons a[href^='http://']").attr("target","_blank");
-  //History.pushState(null,null,"index");
+	$("#socialbuttons a[href^='http://']").attr("target","_blank");
+	$('#socialbuttons a').on('click', function() {
+		if (typeof _gaq !== 'undefined') {
+			var whichOne = ($(this).parent().attr('id') === 'tw-wrapper') ? 'Twitter' : 'Facebook';
+			_gaq.push(['_trackEvent','Social', 'Clicked Social Button', whichOne]);
+		}
+	});
 });
 
 $(document).keydown(function(event) {
