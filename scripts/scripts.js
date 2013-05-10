@@ -1,3 +1,65 @@
+function setUpResultsPage() {
+	$('#result-container').hide();
+	$('#yearModal').modal({
+	  keyboard: false,
+	  show: false
+	});
+	if ($(window).width() > 940) {
+		$('.resultset').off();
+		$('.resultset').on('click', function() {
+			var year = $(this).find('.yearnum').html();
+			$.get(year+'.html', function(data) {
+					$('#yearModal').html(data).modal('toggle');
+			});
+			if (typeof _gaq !== 'undefined') {
+				_gaq.push(['_trackEvent','Results', 'Viewed Year', '' + year]);
+			}
+		});
+	}
+	else {
+		$('.resultset').off();
+		$('.resultset').click(function() {
+			var year = $(this).find('.yearnum').html();
+			$.get(year+'-b.html', function(data) {
+					$('#result-container').html(data);
+					$('#result-container').html(data).fadeIn(250);
+					window.scrollTo(0,0);
+			});
+			if (typeof _gaq !== 'undefined') {
+				_gaq.push(['_trackEvent','Results', 'Viewed Year', '' + year]);
+			}
+		});
+	}
+	$(window).resize(function() {
+		if ($(window).width() > 940) {
+			$('.resultset').off();
+			$('.resultset').on('click', function() {
+				var year = $(this).find('.yearnum').html();
+				$.get(year+'.html', function(data) {
+						$('#yearModal').html(data).modal('toggle');
+				});
+				if (typeof _gaq !== 'undefined') {
+					_gaq.push(['_trackEvent','Results', 'Viewed Year', '' + year]);
+				}
+			});
+		}
+		else {
+			$('.resultset').off();
+			$('.resultset').click(function() {
+				var year = $(this).find('.yearnum').html();
+				$.get(year+'-b.html', function(data) {
+						$('#result-container').html(data);
+						$('#result-container').fadeIn(250);
+						window.scrollTo(0,0);
+				});
+				if (typeof _gaq !== 'undefined') {
+					_gaq.push(['_trackEvent','Results', 'Viewed Year', '' + year]);
+				}
+			});
+		}
+	});
+}
+
 function updateState(fileToLoad) {
 
 	var fileToLoadName = fileToLoad + '.html';
@@ -21,6 +83,9 @@ function updateState(fileToLoad) {
 		}
 		$.get(fileToLoadName, function(data) {
 			$('#guts').html(data).fadeIn(250);
+			if (fileToLoad === "results") {
+				setUpResultsPage();
+			}
 		});
     });
     // Iterate over all nav links, setting the "selected" class as-appropriate.
