@@ -117,8 +117,7 @@ $(function(){
 	}
 	var History = window.History;
 	History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
-        var State = History.getState(); // Note: We are using History.getState() instead of event.state
-        var theState = location.pathname.split('/').pop();
+        var theState = History.getState().url.split('/').pop(); // Note: We are using History.getState() instead of event.state
 		updateState(theState);
     });
 
@@ -126,7 +125,7 @@ $(function(){
 		var theState = $(this).attr("href");
 		var rex = /\.html/;
 		var newState = theState.replace(rex, "");
-		History.pushState(null,null,newState);
+		History.pushState(null,"The Remley Invitational",newState);
 		return false;
 	});
 
