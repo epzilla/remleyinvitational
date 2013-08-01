@@ -16,27 +16,38 @@
 	<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css" />
 	<script type="text/javascript" src="http://use.typekit.com/uce7ajl.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script type="text/javascript">
+
+     // Add a script element as a child of the body
+     function downloadJSAtOnload() {
+         var jq = document.createElement("script");
+         var pf = document.createElement("script");
+         var bs = document.createElement("script");
+         var hi = document.createElement("script");
+         var sk = document.createElement("script");
+         jq.src = "http://code.jquery.com/jquery-latest.min.js";
+         document.body.appendChild(jq);
+         pf.src = "scripts/prefixfree.js";
+         document.body.appendChild(pf);
+         bs.src = "bootstrap/js/bootstrap.min.js";
+         document.body.appendChild(bs);
+         hi.src = "scripts/history.js/scripts/bundled/html4+html5/jquery.history.js";
+         document.body.appendChild(hi);
+         sk.src = "scripts/scripts-ck.js";
+         document.body.appendChild(sk);
+     }
+
+     // Check for browser support of event handling capability
+     if (window.addEventListener)
+        window.addEventListener("load", downloadJSAtOnload, false);
+     else if (window.attachEvent)
+        window.attachEvent("onload", downloadJSAtOnload);
+     else window.onload = downloadJSAtOnload;
+
+    </script>
 	<!--[if lt IE 10]>
 	<script src="scripts/html5shiv.js"></script>
 	<![endif]-->
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="scripts/prefixfree.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<script src="scripts/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
-	<script src="scripts/scripts-ck.js"></script>
-	<script type="text/javascript">
-
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-32776570-1']);
-	  _gaq.push(['_trackPageview']);
-
-	  (function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-
-	</script>
 </head>
 <body>
 	<div class="container">
@@ -92,5 +103,18 @@
 	</div>
 		<div class="modal hide fade hidden-phone" id="yearModal">
 	</div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-32776570-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
 </body>
 </html>
