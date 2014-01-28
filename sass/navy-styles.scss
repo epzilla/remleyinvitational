@@ -794,6 +794,11 @@ padding: 0;
 	}
 }
 
+.modal-body {
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+
 .wf-loading {
 	visibility: hidden;
 }
