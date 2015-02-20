@@ -1,6 +1,6 @@
 'use strict';
 
-var Remley = function () {
+var Remley = (function () {
   var self = {};
 
   var setUpTraditionsTracking = function () {
@@ -194,7 +194,7 @@ var Remley = function () {
   };
 
   return self;
-};
+})();
 
 $(function () {
   Remley.init();
