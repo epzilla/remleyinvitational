@@ -9,3 +9,6 @@ Website for the Remley Invitational Badminton Tournament
 1. `git clone https://github.com/epzilla/remleyinvitational.git`
 2. `npm install`
 3. `gulp` to start server and watch for changes, or `gulp build` to build production version.
+
+## Running
+- `gulp` to start server and watch for changes,  or `gulp build` to build production version.
