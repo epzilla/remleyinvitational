@@ -1,5 +1,5 @@
 # Remley Invitational
-Website for the Remley Invitational Badminton Tournament
+Website for the Remley Invitational Badminton Tournament — http://remleyinvitational.com
 
 ## Prerequisites
 - Node.js (for `npm` and running `gulp`)
