@@ -1,0 +1,104 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title The Remley Invitational
+    meta(name='keywords', content='remley invitational, remling cup, remley, epling broom, badminton tournament')
+    meta(name='description', content='The Remley Invitational is an amateur badminton tournament, founded by Rennick Remley and Adam Epling.')
+    meta(content='yes', name='apple-mobile-web-app-capable')
+    meta(name='apple-mobile-web-app-title', content='Invitational')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='shortcut icon', href='images/favicon-gold.png')
+    link(rel='apple-touch-icon-precomposed', href='images/ri-touch-icon-navy.png')
+    link(rel='apple-touch-startup-image', href='images/ri-splash.png')
+    link(rel='stylesheet', href='bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/navy-styles.css')
+    link(rel='stylesheet', href='bootstrap/css/bootstrap-responsive.min.css')
+    script(src="//localhost:35729/livereload.js")
+  body
+    .container
+      header.bick.clearfix
+        img.hidden-phone.leftimg(draggable='false', src='images/ri-logo-navy-gold-metal-150.png', height='150px', width='150px')
+        img.visible-phone.centerimg(draggable='false', src='images/ri-logo-navy-gold-metal-150.png', height='150px', width='150px')
+        h1.hidden-phone The Remley Invitational
+      .navbar.futura
+        .navbar-inner
+          .container
+            a#navbutton.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            ul.nav.nav-collapse.nonpaddednav
+              ul.nav
+                li#homelink.remnav.active
+                  a.firstnav(href='info.html') Info
+                li.divider-vertical
+                li.remnav
+                  a(href='results.html') Past Results
+                li.divider-vertical
+                li.remnav
+                  a(href='traditions.html') Traditions
+                li.divider-vertical
+                li#photolink.remnav
+                  a.lastnav(href='photos.html') Photos
+      #gutswrap.textile.futura
+        #guts
+          article
+            h1.strokeh1 2014 Remley Invitational
+            h2
+              | June 2014 (Date TBA)
+              h3
+                | Location: TBA
+                .divider_line
+                #listtimes.bick
+                  p 11:00 - Opening Ceremonies
+                  p 11:30 - Seedings/ Draw Announced
+                  p 12:00 - Tournament Begins
+                  p 5:00 - Championship Match
+                  p 8:00 - Championship Gala Begins
+                  p 9:00 - Remling Cup Ceremony
+          .footnote * All times are approximate EDT
+      #socialbuttons
+        #fb-wrapper
+          a(href='http://facebook.com/RemleyInvitational')
+            #facebooklogo
+              img(src='images/fb.png', height='18px', width='9px')
+          span.hidden-phone.hidden-tablet Facebook
+        #tw-wrapper
+          a(href='http://twitter.com/RemlingCup')
+            #twitterlogo
+              img(src='images/twitter-bird-dark-bgs.png', height='30px', width='30px')
+          span.hidden-phone.hidden-tablet Twitter
+      footer
+        | &#169; 2012 -
+        a(href='http://adamepling.com', target='_blank') Epzilla
+        | designs
+    #yearModal.modal.hide.fade.hidden-phone
+    
+
+    //- build:js /js/lib.js
+    block scripts
+      script(src='js/jquery.min.js')
+      script(src='js/prefixfree.js')
+      script(src='bootstrap/js/bootstrap.min.js')
+      script(src='js/history.js')
+    //- endbuild
+    script.
+      (function(d) {
+        var config = {
+          kitId: 'uce7ajl',
+          scriptTimeout: 3000
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+
+    script(src='js/scripts.js')
+    script(type='text/javascript').
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-32776570-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();

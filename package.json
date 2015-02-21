@@ -1,0 +1,38 @@
+{
+  "name": "remleyinvitational",
+  "version": "0.0.0",
+  "description": "Remley Invitational Webapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/epzilla/remleyinvitational.git"
+  },
+  "author": "Adam Epling",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/epzilla/remleyinvitational/issues"
+  },
+  "homepage": "https://github.com/epzilla/remleyinvitational",
+  "devDependencies": {
+    "del": "^1.1.1",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-changed": "^1.1.1",
+    "gulp-imagemin": "^2.2.0",
+    "gulp-jade": "^1.0.0",
+    "gulp-jade-usemin": "^1.0.3",
+    "gulp-jshint": "^1.9.2",
+    "gulp-livereload": "^3.7.0",
+    "gulp-minify-css": "^0.4.6",
+    "gulp-open": "^0.3.2",
+    "gulp-sass": "^1.3.3",
+    "gulp-uglify": "^1.1.0",
+    "gulp-webserver": "^0.9.0",
+    "install": "^0.1.8",
+    "jshint-stylish": "^1.0.0",
+    "npm": "^2.6.0",
+    "run-sequence": "^1.0.2"
+  }
+}
