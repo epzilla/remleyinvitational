@@ -38,7 +38,7 @@ var Remley = (function () {
     else {
       $('.resultset').off();
       
-      $('.resultset').click(function () {
+      $('.resultset').on('click', function () {
         var year = $(this).find('.yearnum').html();
         
         $.get(year+'-b.html', function (data) {
