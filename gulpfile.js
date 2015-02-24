@@ -75,7 +75,7 @@ gulp.task('jade-index', function () {
     .pipe(gulp.dest('./dist'));
 });
 
-// Compile changed Stylus files to CSS and copy to dev_server
+// Compile changed Sass files to CSS and copy to dev_server
 gulp.task('sass', function () {
   return gulp.src('./src/sass/**/*.scss')
     .pipe(changed(paths.dist))
@@ -97,7 +97,7 @@ gulp.task('watch', function () {
   livereload.listen();
   gulp.watch('./src/**/*.js', ['lint']);
   gulp.watch('./src/**/*.jade', ['jade']);
-  gulp.watch('./src/**/*.styl', ['stylus']);
+  gulp.watch('./src/**/*.scss', ['sass']);
   gulp.watch(['./dist/**']).on('change', livereload.changed);
 });
 
