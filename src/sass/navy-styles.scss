@@ -12,7 +12,7 @@ body {
 		padding-left: 0;
 		padding-right: 0;
 	}
-	background: url('../images/blueleather.jpg');
+	background-color: $navy;
 	color: $navy;
 	text-align: center;
 	font-family: $mainfont;
@@ -25,7 +25,6 @@ body {
 
 header {
 	color: $gold;
-	text-shadow: 1.5px 1.5px 0px #ccc;
 	font-weight:bold;
 	text-align:center;
 	margin-bottom: 2%;
