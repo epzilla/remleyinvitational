@@ -4,7 +4,6 @@
 var gulp = require('gulp'),
     del = require('del'),
     runSequence = require('run-sequence'),
-    jshint = require('gulp-jshint'),
     jade = require('gulp-jade'),
     sass = require('gulp-sass'),
     imagemin = require('gulp-imagemin'),
@@ -14,11 +13,9 @@ var gulp = require('gulp'),
     changed = require('gulp-changed'),
     usemin = require('gulp-jade-usemin'),
     uglify = require('gulp-uglify'),
+    coffee = require('gulp-coffee'),
+    coffeelint = require('gulp-coffeelint'),
     webserver = require('gulp-webserver');
-
-/***********************************************************
- Build Tasks
-***********************************************************/
 
 var paths = {
   dist: './dist'
@@ -50,13 +47,13 @@ gulp.task('copy-images', function () {
     .pipe(gulp.dest(paths.dist + '/images'));
 });
 
-// Lint JS files and copy to dist
-gulp.task('lint', function () {
-  gulp.src('./src/js/scripts.js')
+// Lint coffeescript files, compile to JS and copy to dist
+gulp.task('coffee', function () {
+  gulp.src('./src/scripts/scripts.coffee')
     .pipe(changed(paths.dist))
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(jshint.reporter('fail'))
+    .pipe(coffeelint())
+    .pipe(coffeelint.reporter())
+    .pipe(coffee())
     .pipe(uglify())
     .pipe(gulp.dest(paths.dist + '/js'));
 });
@@ -87,20 +84,26 @@ gulp.task('sass', function () {
     .pipe(gulp.dest(paths.dist + '/css'));
 });
 
-// Compile changed Stylus files to CSS and copy to dev_server
-gulp.task('clean-up', function (done) {
+// Delete index.jade from dist
+gulp.task('clean-up-jade', function (done) {
   del(['./dist/index.jade'], done);
+});
+
+// Delete unnecessary files from dist
+gulp.task('clean-up-all', function (done) {
+  del(['./dist/index.jade', './dist/js/**.js', '!./dist/js/scripts.js', '!./dist/js/lib.js'], done);
 });
 
 // Set up watchers for files
 gulp.task('watch', function () {
   livereload.listen();
-  gulp.watch('./src/**/*.js', ['lint']);
+  gulp.watch('./src/**/*.coffee', ['coffee']);
   gulp.watch('./src/**/*.jade', ['jade']);
   gulp.watch('./src/**/*.scss', ['sass']);
   gulp.watch(['./dist/**']).on('change', livereload.changed);
 });
 
+// Start a basic webserver
 gulp.task('webserver', function() {
   gulp.src(paths.dist)
     .pipe(webserver({
@@ -122,13 +125,13 @@ gulp.task('open', function () {
   }, 2000);
 });
 
-// Copy bower_components folder and index.jade to dist
+// Copy libs and such to dist
 gulp.task('copy-build', function () {
   gulp.src('./ResponsiveImageGallery/**')
     .pipe(gulp.dest('./dist/ResponsiveImageGallery'));
   gulp.src('./bootstrap/**')
     .pipe(gulp.dest('./dist/bootstrap'));
-  gulp.src(['./src/js/**', '!./js/scripts.js'])
+  gulp.src(['./src/scripts/**.js'])
     .pipe(gulp.dest('./dist/js'));
   gulp.src('./src/images/*.svg')
     .pipe(gulp.dest('./dist/images/'));
@@ -141,9 +144,9 @@ gulp.task('default', function () {
   runSequence(
     'clean',
     'copy-build',
-    ['lint', 'jade', 'sass', 'copy-images'],
+    ['coffee', 'jade', 'sass', 'copy-images'],
     'jade-index',
-    'clean-up',
+    'clean-up-jade',
     ['webserver', 'watch']
   );
 });
@@ -153,9 +156,9 @@ gulp.task('build', function () {
   runSequence(
     'clean',
     'copy-build',
-    ['lint', 'sass', 'jade', 'imagemin'],
+    ['coffee', 'jade', 'sass', 'imagemin'],
     'usemin',
     'jade-index',
-    'clean-up'
+    'clean-up-all'
   );
 });
